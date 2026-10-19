@@ -50,9 +50,11 @@ ext.archInfo = [
         VMOptions: isArm64 ? "${rootDir}/gradle/jdk17/java-tron.vmoptions" : "${rootDir}/gradle/java-tron.vmoptions"
 ]
 
-if (!archInfo.java.is(archInfo.requires.JavaVersion)) {
-    throw new GradleException("Java ${archInfo.requires.JavaVersion} is required for ${archInfo.name}. Detected version ${archInfo.java}")
-}
+// JDK 버전 제약 해제 (Custom Patched)
+// original check bypassed to support flexible JVM runtimes.
+//if (!archInfo.java.is(archInfo.requires.JavaVersion)) {
+//    throw new GradleException("Java ${archInfo.requires.JavaVersion} is required for ${archInfo.name}. Detected version ${archInfo.java}")
+//}
 
 println "Building for architecture: ${archInfo.name}, Java version: ${archInfo.java}"
 
