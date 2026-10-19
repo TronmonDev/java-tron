@@ -75,12 +75,16 @@ public final class Arch {
   }
 
   public static void throwIfUnsupportedJavaVersion() {
+    // JDK 버전 제약 해제 (Custom Patched)
+    // original check bypassed to support flexible JVM runtimes.
+    /*
     if ((isX86() && !isJava8()) || (isArm64() && !isJava17())) {
       logger.info(withAll());
       throw new UnsupportedOperationException(String.format(
           "Java %s is required for %s architecture. Detected version %s", isX86() ? "1.8" : "17",
           getOsArch(), javaSpecificationVersion()));
     }
+    */
   }
 
   public static void throwIfUnsupportedArm64Exception(String message) {
