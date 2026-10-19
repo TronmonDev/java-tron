@@ -68,11 +68,15 @@ public class FullNode {
   }
 
   private static void checkJdkVersion() {
+    // JDK 버전 제약 해제 (Custom Patched)
+    // original check bypassed to support flexible JVM runtimes.
+    /*
     try {
       Arch.throwIfUnsupportedJavaVersion();
     } catch (UnsupportedOperationException e) {
       System.err.println(e.getMessage());
       throw new TronError(e, TronError.ErrCode.JDK_VERSION);
     }
+    */
   }
 }
